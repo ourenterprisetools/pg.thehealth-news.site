@@ -54,7 +54,31 @@
           Includes 180-Day Money Back Guarantee</b></p>
           <br>
           <br>
-        <a href="URL_DA_PAGINA_DE_VENDA" class="btn">CHOOSE YOUR PACKAGE</a>
+        <a href="https://thehealth-news.site/05prejlgn9/">
+        <button class="btn" id="proceedButton">CHOOSE YOUR PACKAGE</button>
+        </a>
     </div>
+
+     <script>
+        // Attach URL parameters to the redirect link
+        document.addEventListener('DOMContentLoaded', function() {
+            var proceedButton = document.querySelector('a');
+            var currentUrlParams = new URLSearchParams(window.location.search);
+  
+            var newHref = proceedButton.href;
+            if (!newHref.includes('?')) {
+                newHref += '?';
+            } else {
+                newHref += '&';
+            }
+  
+            currentUrlParams.forEach(function(value, key) {
+                newHref += `${encodeURIComponent(key)}=${encodeURIComponent(value)}&`;
+            });
+            newHref = newHref.slice(0, -1); // Remove the last '&'
+            proceedButton.href = newHref;
+        });
+    </script>
+    
 </body>
 </html>
