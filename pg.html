@@ -1,304 +1,380 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sugar Sweep</title>
-  <!-- Basic in-page CSS (you can replace with an external stylesheet) -->
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #ffffff;
-      color: #333333;
-      line-height: 1.6;
-    }
-    header, footer {
-      text-align: center;
-      padding: 20px;
-    }
-    header img {
-      max-width: 200px;
-    }
-    .container {
-      width: 90%;
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 20px 0;
-    }
-    h1, h2, h3 {
-      color: #333333;
-    }
-    h1 {
-      font-size: 28px;
-      margin: 20px 0;
-    }
-    h2 {
-      font-size: 24px;
-      margin: 20px 0;
-    }
-    h3 {
-      font-size: 20px;
-      margin: 15px 0;
-    }
-    p {
-      margin: 10px 0;
-    }
-    .product-highlights {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      margin-bottom: 20px;
-    }
-    .highlight {
-      flex: 1 1 150px;
-      max-width: 250px;
-      margin: 10px;
-      text-align: center;
-    }
-    .highlight img {
-      max-width: 100px;
-    }
-    .highlight p {
-      font-weight: bold;
-      margin-top: 5px;
-    }
-    .purchase-options {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin: 40px 0;
-    }
-    .option {
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      margin: 10px;
-      padding: 20px;
-      flex: 1 1 200px;
-      max-width: 250px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-    }
-    .option img {
-      max-width: 100px;
-      height: auto;
-      margin-bottom: 10px;
-    }
-    .price {
-      font-size: 24px;
-      color: #000;
-      margin: 10px 0;
-      font-weight: bold;
-    }
-    .btn-add-to-cart {
-      display: inline-block;
-      background-color: #ffcc00;
-      color: #000;
-      text-decoration: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      font-weight: bold;
-    }
-    .faq {
-      margin: 40px 0;
-    }
-    .faq-item {
-      margin-bottom: 20px;
-    }
-    .references, .disclaimer {
-      font-size: 0.9em;
-      color: #666;
-      margin-top: 20px;
-    }
-    .references li {
-      list-style-type: decimal;
-      margin-left: 20px;
-    }
-    footer {
-      background-color: #f5f5f5;
-    }
-    footer nav a {
-      margin: 0 10px;
-      color: #333;
-      text-decoration: none;
-    }
-  </style>
-</head>
-<body>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
 
-  <!-- HEADER -->
-  <header>
-    <!-- Replace with your product logo -->
-    <img src="https://cdn.softwareprojects.com/productimages/10246/11/p_oduc_6o_ovlp_p_g_resized333.png" alt="Descrição da Imagem" style="max-width: 250px;" alt="Sugar Sweep Logo" />
-  </header>
+    <script
+      type="text/javascript"
+      src="https://track.onebetter-life.site/track.js?rtkcmpid=6805253edef9f76e49c3c12b"
+    ></script>
 
-  <div class="container">
-    <!-- TITLE & INTRO SECTION -->
-    <section>
-      <h1>Sugar Sweep</h1>
-      <p>
-        Sugar Sweep is a specially formulated dietary supplement designed for men who want to support their daily
-        energy, stamina, and overall wellness. Made with high-quality natural ingredients and produced under strict
-        safety standards, Sugar Sweep is the ideal ally for those seeking an active and healthy lifestyle.
-      </p>
-    </section>
+    <script>
+      /* ---------- utilitário para ler cookies ---------- */
+      function getCookie(name) {
+        // procura "name=valor" entre os cookies
+        const match = document.cookie
+          .split("; ")
+          .find((row) => row.startsWith(name + "="));
+        return match ? decodeURIComponent(match.split("=")[1]) : null;
+      }
 
-    <!-- PRODUCT HIGHLIGHTS / BENEFITS -->
-    <section>
-      <h2>Key Highlights</h2>
-      <div class="product-highlights">
-        <div class="highlight">
-          <!-- Replace with actual ingredient or icon image -->
-          <img src="assets/images/360_F_673580891_ocIzznL6nKLlpwlxekIlKljfmDZuxbxR.jpg" alt="Icon 1" />
-          <p>Natural Ingredients</p>
-        </div>
-        <div class="highlight">
-          <img src="assets/images/effectiveness-efficient-powerful.jpg" alt="Icon 2" />
-          <p>Powerful Formula</p>
-        </div>
-        <div class="highlight">
-          <img src="assets/images/images.png" alt="Icon 3" />
-          <p>Non-GMO</p>
-        </div>
-        <div class="highlight">
-          <img src="assets/images/made-in-the-usa-icon-premium-qua.png" alt="Icon 4" />
-          <p>Made in the USA</p>
-        </div>
-        <div class="highlight">
-          <img src="assets/images/easy.png" alt="Icon 5" />
-          <p>Easy to Take</p>
-        </div>
-      </div>
-      <p>
-        Each Sugar Sweep capsule features a unique blend of carefully selected ingredients 
-        aimed at supporting hormonal balance, energy, and vitality.
-      </p>
-    </section>
+      /* ---------- captura de identificadores ---------- */
+      const clickid = getCookie("rtkcid"); //  <-- troque "rtkcid" se o cookie tiver outro nome
+      const params = new URLSearchParams(window.location.search);
+      const rdtk_event_id = params.get("ip"); // continua vindo da URL (mantenha se precisar)
 
-    <!-- INGREDIENTS (simplified example) -->
-    <section>
-      <h2>Featured Ingredients</h2>
-      <p>
-        Formulated from plant extracts and natural compounds, Sugar Sweep combines:
-      </p>
-      <ul>
-        <li><strong>Tribulus Terrestris</strong> – Supports overall male health</li>
-        <li><strong>Mucuna Pruriens</strong> – Helps promote well-being and energy</li>
-        <li><strong>Korean Ginseng</strong> – Assists in energy and stamina</li>
-        <li><strong>Ashwagandha</strong> – Supports balance and stress management</li>
-        <li><strong>DHEA</strong> – Helps maintain natural hormone production</li>
-        <!-- Add more ingredients as needed -->
-      </ul>
-      <p>
-        All ingredients are chosen under Good Manufacturing Practices (GMP), focusing on quality 
-        and consumer safety.
-      </p>
-    </section>
+      /* ---------- resto do script original ---------- */
+      function startOfferTimer() {
+        console.log("startOfferTimer iniciado");
+        const offerTimerElements =
+          document.querySelectorAll(".offer-timer-count");
+        let o = 1800; // 30 min
 
-    <!-- PURCHASE OPTIONS -->
-    <section>
-        <h2>Choose Your Sugar Sweep Package</h2>
-        <div class="purchase-options">
-          <div class="option">
-            <h3>1 Bottle</h3>
-            <img src="assets/images/prod4.png" alt="Pot 1" />
-            <p>(30-Day Supply)</p>
-            <p class="price">$89</p>
-            <a class="btn-add-to-cart" href="https://www.checkout-ds24.com/product/575335?aff=phcampos&cid=67cc51032ab8bcce9a3bb2be">Add to Cart</a>
-          </div>
-          <div class="option" style="border: 2px solid #000;">
-            <h3>6 Bottles</h3>
-            <img src="assets/images/prod3.png" alt="Pot 6" />
-            <p>(180-Day Supply)</p>
-            <p class="price">$49/bottle</p>
-            <p>Free Shipping</p>
-            <a class="btn-add-to-cart" href="https://www.checkout-ds24.com/product/575337?aff=phcampos&cid=67cc51032ab8bcce9a3bb2be">Add to Cart</a>
-          </div>
-          <div class="option">
-            <h3>3 Bottles</h3>
-            <img src="assets/images/prod2.png" alt="Pot 3" />
-            <p>(90-Day Supply)</p>
-            <p class="price">$59/bottle</p>
-            <a class="btn-add-to-cart" href="https://www.checkout-ds24.com/product/575336?aff=phcampos&cid=67cc51032ab8bcce9a3bb2be">Add to Cart</a>
-          </div>
-        </div>
-      </section>
+        if (!offerTimerElements.length) {
+          console.log("Nenhum elemento .offer-timer-count encontrado");
+          return;
+        }
 
-    <!-- GUARANTEE / CALL TO ACTION -->
-    <section>
-      <h2>180-Day Satisfaction Guarantee</h2>
-      <p>
-        When you purchase Sugar Sweep, you’re backed by a 180-day satisfaction guarantee. 
-        If you’re not completely satisfied with the results, simply request a full refund. 
-        <strong>It’s that straightforward!</strong>
-      </p>
-    </section>
+        const r = setInterval(() => {
+          const e = String(Math.floor(o / 60)).padStart(2, "0");
+          const t = String(o % 60).padStart(2, "0");
 
-    <!-- FAQ -->
-    <section class="faq">
-      <h2>Frequently Asked Questions</h2>
+          offerTimerElements.forEach(
+            (el) => (el.innerHTML = `<h1>${e}:${t}</h1>`)
+          );
+          console.log(`Timer atualizado: ${e}:${t}`);
 
-      <div class="faq-item">
-        <h3>1. How long does it take to see results?</h3>
-        <p>
-          Most users report positive changes within the first few weeks. However, each body is unique and 
-          may respond differently. Consistent use is recommended.
+          if (--o < 0) {
+            clearInterval(r);
+            console.log("Timer finalizado");
+          }
+        }, 1000);
+      }
+
+      function displayOnPitch() {
+        startOfferTimer();
+        document
+          .querySelectorAll(".display-on-pitch")
+          .forEach((el) => el.classList.remove("display-on-pitch"));
+        document
+          .querySelector(".scroll-on-pitch")
+          ?.scrollIntoView({ behavior: "smooth" });
+      }
+
+      if (clickid) {
+        const base = "https://track.thenew-health.online/postback";
+        const encode = (v) => encodeURIComponent(v);
+        const q = (t) =>
+          `${base}?clickid=${encode(clickid)}&rdtk_event_id=${encode(
+            rdtk_event_id
+          )}&type=${encode(t)}`;
+
+        const urls = {
+          view: q("VSL View"),
+          play: q("VSL - Play"),
+          view3s: q("VSL - 3 View"),
+          view60s: q("VSL - 60 View"),
+          view120s: q("VSL - 120 View"),
+          view300s: q("VSL - 300 View"),
+          pitchView: q("VSL - Pitch View"),
+          leadview: q("VSL - Lead View"),
+        };
+
+        window.addEventListener("DOMContentLoaded", () => {
+          fetch(urls.view);
+          if (localStorage.getItem("pitchView") === "true") {
+            console.log(
+              "Pitch View previamente visualizado. Abrindo todas as seções."
+            );
+            displayOnPitch();
+          }
+        });
+
+        window.addEventListener("message", ({ data }) => {
+          switch (data) {
+            case "VSL View":
+              fetch(urls.view);
+              break;
+            case "VSL - Lead View":
+              fetch(urls.leadview);
+              break;
+            case "VSL - Play":
+              fetch(urls.play);
+              document
+                .querySelectorAll(".hide-on-play")
+                .forEach((el) => (el.style.display = "none"));
+              document.body.style.backgroundColor = "#000";
+              break;
+            case "VSL - 3 View":
+              fetch(urls.view3s);
+              break;
+            case "VSL - 60 View":
+              fetch(urls.view60s);
+              break;
+            case "VSL - 120 View":
+              fetch(urls.view120s);
+              break;
+            case "VSL - 300 View":
+              fetch(urls.view300s);
+              break;
+            case "VSL - Pitch View":
+              localStorage.setItem("pitchView", "true");
+              fetch(urls.pitchView);
+              displayOnPitch();
+              break;
+          }
+          console.log(data);
+        });
+      } else {
+        console.log("Cookie 'rtkcid' não encontrado — sem clickid");
+      }
+    </script>
+
+    <link
+      rel="preload"
+      href="https://scripts.converteai.net/dc2bee22-f6b3-41ae-b28c-3a61aaac8be4/players/67d071ca632a0adc39bfc062/player.js"
+      as="script"
+    />
+    <link
+      rel="preload"
+      href="https://scripts.converteai.net/lib/js/smartplayer/v1/smartplayer.min.js"
+      as="script"
+    />
+    <link
+      rel="preload"
+      href="https://images.converteai.net/dc2bee22-f6b3-41ae-b28c-3a61aaac8be4/players/67d071ca632a0adc39bfc062/thumbnail.jpg"
+      as="image"
+    />
+    <link
+      rel="preload"
+      href="https://cdn.converteai.net/dc2bee22-f6b3-41ae-b28c-3a61aaac8be4/67d06fb944b6488d4311b316/main.m3u8"
+      as="fetch"
+    />
+    <link rel="dns-prefetch" href="https://cdn.converteai.net" />
+    <link rel="dns-prefetch" href="https://scripts.converteai.net" />
+    <link rel="dns-prefetch" href="https://images.converteai.net" />
+    <link rel="dns-prefetch" href="https://api.vturb.com.br" />
+
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        font-size: 18px;
+        line-height: 1.6;
+        background-color: #c7c7c7;
+        color: #2e2e2e;
+      }
+
+      header {
+        background-color: #2c3e50;
+        color: #ffffff;
+        padding: 20px 0;
+        text-align: center;
+      }
+
+      header h1 {
+        font-size: 2rem;
+      }
+
+      header p {
+        font-size: 1.2rem;
+        font-style: italic;
+      }
+
+      nav {
+        background-color: #90a4ae;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        padding: 10px 0;
+      }
+
+      nav a {
+        color: #1c313a;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      nav a:hover {
+        text-decoration: underline;
+      }
+
+      main {
+        max-width: 900px;
+        margin: 30px auto;
+        padding: 0 20px;
+      }
+
+      article {
+        background: #ffffff;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      article h2 {
+        color: #37474f;
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+        text-align: center;
+      }
+
+      article p {
+        margin-bottom: 15px;
+        line-height: 1.6;
+      }
+
+      .highlight {
+        font-weight: bold;
+        color: #cc0000;
+      }
+
+      .featured-image {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 20px auto;
+      }
+
+      .watch-video-btn {
+        background: #607d8b;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        display: inline-block;
+        transition: background-color 0.3s;
+      }
+
+      .watch-video-btn:hover {
+        background: #455a64;
+      }
+
+      footer {
+        background-color: #263238;
+        color: #ffffff;
+        font-size: 12px;
+        text-align: center;
+        padding: 30px 20px;
+      }
+
+      .footer-container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .footer-container p {
+        margin: 10px 0;
+        line-height: 1.6;
+      }
+
+      .footer-links {
+        margin-top: 15px;
+      }
+
+      .footer-links a {
+        color: #ffffff;
+        text-decoration: none;
+        margin: 0 10px;
+        font-weight: bold;
+        font-size: 0.9em;
+      }
+
+      .footer-links a:hover {
+        text-decoration: underline;
+        color: #90caf9;
+      }
+
+      .disclaimer {
+        font-size: 0.8em;
+        line-height: 1.4;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <article>
+        <h2>
+          Ѕ​р​е​с​і​а​l​і​ѕ​t​ ​R​е​v​е​а​l​ѕ​
+          <span class="highlight">​W​а​r​m​ ​W​а​t​е​r​ <br />​R​і​t​u​а​l</span
+          >​ ​t​h​а​t​ <span class="highlight">​R​Е​V​Е​R​Ѕ​Е​Ѕ</span>​ <br />
+          ​t​у​р​е​ ​2​ ​d​і​а​b​е​t​е​ѕ​
+        </h2>
+        <p style="font-size: 0.7rem">
+          <strong>Publication Date:</strong> April 15, 2025
         </p>
-      </div>
 
-      <div class="faq-item">
-        <h3>2. How do I take Sugar Sweep?</h3>
-        <p>
-          Follow the instructions on the label. Typically, 1 or 2 capsules per day with water is recommended. 
-          Please consult a healthcare professional for specific guidance.
+        <script type="text/javascript" id="scr_67fa5edf7066994f5aca03b4">
+          var s = document.createElement("script");
+          (s.src =
+            "https://scripts.converteai.net/dc2bee22-f6b3-41ae-b28c-3a61aaac8be4/ab-test/67fa5edf7066994f5aca03b4/player.js"),
+            (s.async = !0),
+            document.head.appendChild(s);
+        </script>
+      </article>
+    </main>
+
+    <footer>
+      <div class="footer-container">
+        <p>&copy; 2024. All rights reserved.</p>
+
+        <p class="disclaimer">
+          This site is not part of TikTok, Inc. or TikTok.com, nor is it
+          sponsored or endorsed by TikTok.<br />
+          TikTok is a trademark of ByteDance, Ltd.
         </p>
-      </div>
 
-      <div class="faq-item">
-        <h3>3. Is Sugar Sweep safe?</h3>
-        <p>
-          We use natural ingredients and follow Good Manufacturing Practices. 
-          If you have any medical condition or concerns, please consult your doctor before starting any supplement.
+        <p class="disclaimer">
+          Disclaimer: This site is provided for educational purposes only.
+          Always consult a health professional before implementing any strategy
+          discussed here.<br />
+          The author is not engaged in rendering medical or similar professional
+          services and the information provided is not intended to replace
+          medical advice.
         </p>
+
+        <div class="footer-links">
+          <a href="https://pg.thehealth-news.site/privacy-policy.html/"
+            >Privacy Policy</a
+          >
+          <a href="https://pg.thehealth-news.site/terms.html">Terms</a>
+          <a href="https://pg.thehealth-news.site/refund.html/">Refund</a>
+        </div>
       </div>
+    </footer>
 
-      <div class="faq-item">
-        <h3>4. Where can I buy Sugar Sweep?</h3>
-        <p>
-          Sugar Sweep is exclusively sold on this official website. We do not guarantee the quality 
-          of products purchased elsewhere.
-        </p>
-      </div>
-    </section>
+    <script>
+      (function (window) {
+        window.onpopstate = function () {
+          let subid = localStorage.getItem("subid") || "";
+          let subid2 = localStorage.getItem("subid2") || "";
+          let subid3 = localStorage.getItem("subid3") || "";
+          let subid4 = localStorage.getItem("subid4") || "";
+          let subid5 = localStorage.getItem("subid5") || "";
 
-    <!-- REFERENCES / DISCLAIMER -->
-    <section class="references">
-      <h2>References</h2>
-      <ul>
-        <li>Jiu Q, Zhang Y, Bai R, ... (2023). <em>Botanical insights for supporting men’s wellness...</em></li>
-        <li>Argiolas A, Argiolas F, ... (2023). <em>Male health: Treatments, Advances...</em></li>
-        <!-- Include real references as needed -->
-      </ul>
-    </section>
+          let redirectUrl = new URL(
+            "https://track.onebetter-life.site/67f425e5a1b2d8eec81adec4?utm_campaign={replace}&sub2={keyword}&sub3={matchtype}&sub4={adgroupid}&sub5={creative}&sub6={campaignid}&sub7={device}&sub8={adposition}&sub9={network}&sub10={placement}&utm_source=Google&wbraid={wbraid}&gbraid={gbraid}&adgroup={_cj}&creative={_ad}&ref_id={gclid}"
+          );
+          if (subid) redirectUrl.searchParams.set("subid", subid);
+          if (subid2) redirectUrl.searchParams.set("subid2", subid2);
+          if (subid3) redirectUrl.searchParams.set("subid3", subid3);
+          if (subid4) redirectUrl.searchParams.set("subid4", subid4);
+          if (subid5) redirectUrl.searchParams.set("subid5", subid5);
 
-    <section class="disclaimer">
-      <p><strong>Legal Disclaimer:</strong> The information on this website is not intended to replace medical advice. This product is not intended to diagnose, treat, cure, or prevent any disease. Results may vary from person to person. Always consult a healthcare professional before starting any supplement.</p>
-    </section>
-  </div>
-
-  <!-- FOOTER -->
-  <footer>
-    <nav>
-      <a href="privacy-policy.html">Privacy Policy</a> |
-      <a href="terms-conditions.html">Terms & Conditions</a> |
-      <a href="refund.html">Refund Policy</a> |
-      <a href="mailto:support@sugarsweep.com">Contact</a>
-    </nav>
-    <p>&copy; 2025 Sugar Sweep. All Rights Reserved.</p>
-  </footer>
-
-</body>
+          window.location.href = redirectUrl.toString();
+        };
+        window.history.pushState({}, "");
+      })(window);
+    </script>
+  </body>
 </html>
