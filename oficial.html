@@ -180,8 +180,8 @@
         background: #b20000;
         color: #fff;
         text-align: center;
-        padding: 8px 0;
-        font-size: 0.8rem;
+        padding: 18px 0;
+        font-size: 1.4rem;
         font-weight: bold;
         letter-spacing: 0.5px;
       }
@@ -221,9 +221,54 @@
         font-size: 0.8rem;
       }
     </style>
+
+    <style>
+      .breaking-news-bar {
+        background-color: #850505;
+        color: white;
+        overflow: hidden;
+        position: relative;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+        font-family: Arial, sans-serif;
+      }
+
+      .breaking-news-text {
+        white-space: nowrap;
+        display: inline-block;
+        padding-left: 100%;
+        animation: scroll-left 58s linear infinite;
+      }
+
+      @keyframes scroll-left {
+        0% {
+          transform: translateX(0%);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+    </style>
   </head>
   <body>
-    <div class="header-bar">DAILY UPDATES ON WELLNESS AND HEALTH</div>
+    <div class="header-bar">HEALTH NEWS</div>
+    <div class="breaking-news-bar">
+      <div class="breaking-news-text">
+        <span>BREAKING NEWS: Daily updates on wellness and health -</span>
+        <span>BREAKING NEWS: Daily updates on wellness and health -</span>
+        <span>BREAKING NEWS: Daily updates on wellness and health -</span>
+        <span>BREAKING NEWS: Daily updates on wellness and health -</span>
+        <span>BREAKING NEWS: Daily updates on wellness and health -</span>
+        <span>BREAKING NEWS: Daily updates on wellness and health -</span>
+        <span>BREAKING NEWS: Daily updates on wellness and health -</span>
+        <span>BREAKING NEWS: Daily updates on wellness and health -</span>
+        <span>BREAKING NEWS: Daily updates on wellness and health -</span>
+        <span>BREAKING NEWS: Daily updates on wellness and health -</span>
+        <span>BREAKING NEWS: Daily updates on wellness and health -</span>
+      </div>
+    </div>
 
     <div class="headline">
       <h1>
