@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Japanese Compound – Qualification Quiz</title>
+
+  <!-- Tailwind (play CDN) + custom palette -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["Geist", "ui-sans-serif", "system-ui"],
+          },
+          colors: {
+            brand: {
+              50:  '#eff6ff',
+              100: '#dbeafe',
+              200: '#bfdbfe',
+              300: '#93c5fd',
+              400: '#60a5fa',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+            },
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- Icon set -->
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet" />
+
+  <style>
+    .fade-in{opacity:0;animation:fadeIn .3s ease forwards}@keyframes fadeIn{to{opacity:1}}
+  </style>
+</head>
+<body class="min-h-screen bg-slate-100 flex flex-col items-center justify-center py-8 px-2 text-slate-800">
+  <main id="root" class="w-full max-w-lg mx-auto fade-in"></main>
+
+  <!-- React + Babel (UMD) -->
+  <script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <!-- ► INLINE REACT CODE (transpiled by Babel) ◄ -->
+  <script type="text/babel">
+    const {useState} = React;
+
+    // ===========================
+    // Step data (from screenshots)
+    // ===========================
+    const steps = [
+      {
+        id: 1,
+        question: 'Are you man or a woman?',
+        answers: [
+          { label: 'MAN' },
+          { label: 'WOMAN' },
+        ],
+      },
+      {
+        id: 2,
+        question: 'How long have you had diabetes?',
+        answers: [
+          { label: 'less than 5 years' },
+          { label: '5-9 years' },
+          { label: 'over 10 years' },
+        ],
+      },
+      {
+        id: 3,
+        question: 'Are you interested in fix your type 2 and losing up to 2 lbs of fat every 48 hours?',
+        answers: [
+          { label: 'YES' },
+          { label: 'NO' },
+        ],
+      },
+      {
+        id: 4,
+        question: 'This video contains Japanese Compound trick for control high blood sugar in 6 days. Do you promise to watch the video in full?',
+        answers: [
+          { label: 'YES' },
+          { label: 'NO' },
+        ],
+      },
+    ];
+
+    const FINAL = {
+      title: 'CONGRATULATIONS!',
+      subtitle: 'Your spot has been reserved!',
+      text: 'Please watch this video presentation immediately as it could be taken down at any moment.',
+      btn: {
+        label: 'CLICK HERE TO WATCH THE VIDEO >>',
+        url: 'carlosmen.shop/pg5',
+      },
+    };
+
+    // =====================
+    // Helper components
+    // =====================
+    const Header = () => (
+      <header className="text-center">
+        <h1 className="text-lg sm:text-xl font-bold leading-tight">
+          Please answer these <span className="font-extrabold text-brand-600">5 short questions</span> to see if you qualify to watch the "Japanese Compound" video.
+        </h1>
+        <hr className="border-t mt-6 mb-8 border-slate-200" />
+      </header>
+    );
+
+    const AnswerButton = ({label, onClick}) => (
+      <button
+        onClick={onClick}
+        className="w-full py-3 mb-3 last:mb-0 rounded-md bg-slate-900 text-white text-sm tracking-wide hover:bg-slate-800 active:scale-[.98] transition-transform"
+      >
+        {label.toUpperCase()}
+      </button>
+    );
+
+    const ProgressDots = ({index}) => (
+      <div className="flex items-center justify-center gap-2 mb-6 select-none">
+        {steps.map((_, i) => (
+          <span key={i} className={`h-2 w-2 rounded-full ${i<=index ? 'bg-brand-500' : 'bg-slate-300'}`}></span>
+        ))}
+      </div>
+    );
+
+    // =====================
+    // Root App
+    // =====================
+    function App(){
+      const [stepIndex,setStepIndex]=useState(0);
+      const isLast = stepIndex>=steps.length;
+
+      const handleAnswer=()=>{
+        if(stepIndex<steps.length){setStepIndex(i=>i+1)}
+      };
+
+      if(isLast){
+        return (
+          <section className="bg-white shadow-lg rounded-lg p-8 text-center space-y-6 mb-20">
+            <h2 className="text-2xl font-bold text-brand-600">{FINAL.title}</h2>
+            <p className="font-medium">{FINAL.subtitle}</p>
+            <p className="text-[15px] text-slate-600 leading-relaxed">{FINAL.text}</p>
+            <a href={FINAL.btn.url} className="inline-block bg-brand-500 hover:bg-brand-600 text-white rounded-md px-6 py-3 font-semibold text-sm tracking-wide transition-colors">
+              {FINAL.btn.label}
+            </a>
+          </section>
+        );
+      }
+
+      const current = steps[stepIndex];
+      return (
+        <section className="bg-white shadow-lg rounded-lg p-6 sm:p-8 w-full mb-20">
+          <Header/>
+          <ProgressDots index={stepIndex} />
+          <h2 className="text-center text-xl font-extrabold mb-6">{current.question}</h2>
+          <div>
+            {current.answers.map(({label})=> (
+              <AnswerButton key={label} label={label} onClick={handleAnswer}/>
+            ))}
+          </div>
+        </section>
+      );
+    }
+
+    // Mount
+    ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+  </script>
+</body>
+</html>
